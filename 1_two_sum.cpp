@@ -1,37 +1,38 @@
 #include <iostream>
-#include <vector>
-#include <memory>
 
+// Include your libraries here:
+#include <vector>
 using std::vector;
+
+// Define a logger
+#define LOG(x) std::cout << "Result: " << x << std::endl
 
 class Solution {
 public:
-    vector<int> twoSum(vector<int>& nums, int target) {
-        vector<int> candidates;
-        for(auto& i : nums) {
-            if(i>target) {
-                continue;
-            }else {
 
-            }
-        }
-        return {0,1};
+    vector<int> twoSum(vector<int>& nums, int target) {
+      std::vector<int> output;
+      for(int i=0; i<nums.size(); i++) {
+	for(int j=i+1; j<nums.size(); j++) {
+	  if(nums[i] + nums[j] == target) {
+	    output = {i, j};
+	    return output;
+	}
+       }
+      }
+      return {-1,-1};
     }
 };
 
 
 int main() {
-    vector<int> myNums = {2,7,11,5};
-    int myTarget = 9;
+    Solution mySol; // instantiate Solution
 
-    std::unique_ptr<Solution> mySolution = std::make_unique<Solution>();
-
-
-    vector<int> myAnswer = mySolution->twoSum(myNums, myTarget);
+    std::vector<int> nu {2,7,11,15};
+    int ta = 18;
     
-    for(auto& i : myAnswer) {
-        std::cout << i << ", ";
-    }
+    std::vector<int> result = mySol.twoSum(nu, ta);// save the result
 
+    LOG(result[0] << ", " << result[1]); // output the result
     return 0;
 }

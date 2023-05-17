@@ -3,7 +3,7 @@
 // Include your libraries here:
 
 // Define a logger
-#define LOG(x) std::cout << x << std::endl
+#define LOG(x) std::cout << "Result: " << x << std::endl
 
 class Solution {
 public:
